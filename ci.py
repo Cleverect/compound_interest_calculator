@@ -1,19 +1,23 @@
-def compound_interest():
-    principal = input('Please enter your initial deposit: $')
-    rate = input('Please enter the expected interest rate: ')
-    rate = rate/100
-    time = input('Please enter the number of years it will be saved: ')
-    time += 1
-    compound = input('How many times is the interest compounded yearly?: ')
-
-    print "Year %21s" % "Amount on deposit"
-
-    for time in range(1, time):
-        formula = principal * (1.0 + rate)** time
-        print "%4d%21.2f" % (time, formula)
-
-def start():
-    print "Lets start compounding your interest"
-    compound_interest()
-
-start()
+print('Compound-Interest Calculator')
+print('Enter The Details To Proceed')
+run = True 
+def ci():
+	global run
+	s = input('Do You Want To Find Out Compoud Interest Annually OR Semi-Annually:')
+	if s == 'Quit':
+		print('Goodbye')
+		run = False
+	else:
+		run = True
+	p = int(input('Enter The Principle:'))
+	r = int(input('Enter The Rate OF Interest:'))
+	t = int(input('Enter The Time Period(IN YEARS):'))
+	if s == 'Semi-Annually':
+		a = p*(1 + r/200)**2*t
+	else:
+		a = p*(1 + r/100)**t
+	ci = a-p
+	print(ci)
+	print('Thank You For Using Compound-Interest Calculator')
+while run:
+	ci()
